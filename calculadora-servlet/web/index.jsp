@@ -18,6 +18,8 @@
     </fieldset>
   </form>
 
+  <hr/>
+
   <form action="SubtracaoServlet">
     <fieldset>
       <legend>Subtrair</legend>
