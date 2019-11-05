@@ -33,5 +33,7 @@
     </fieldset>
   </form>
 
+  <hr/>
+
   </body>
 </html>
