@@ -1,5 +1,4 @@
-<%@ page import="br.edu.usj.ads.lpii.LivroCaixa" %>
-<%@ page import="br.edu.usj.ads.lpii.Registro" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -17,22 +16,17 @@
 
   <fieldset>
     <legend>Registros do Livro Caixa</legend>
-    <ul>
-<%
-  LivroCaixa livro = (LivroCaixa) request.getAttribute("livro");
+    <c:if test="${not empty livro.registros}">
+      <ul>
+        <c:forEach items="${livro.registros}" var="r">
+          <li> ${ r.descricao } ${ r.valor } </li>
+        </c:forEach>
+      </ul>
+    </c:if>
 
-  if (livro != null) {
-    for (Registro r : livro.getRegistros()) {
-      %>
-      <li> <%= r.getDescricao() %> <%= r.getValor() %></li>
-      <%
-    }
-  }
-  else {
-    out.print("<li>Não há registros</li>");
-  }
-%>
-    </ul>
+    <c:if test="${empty livro.registros}">
+      <p>Não há registros!</p>
+    </c:if>
   </fieldset>
   </body>
 </html>
