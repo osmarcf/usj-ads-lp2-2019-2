@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -14,6 +15,7 @@
     </fieldset>
   </form>
 
+  <jsp:useBean id="livro" class="br.edu.usj.ads.lpii.LivroCaixa" />
   <fieldset>
     <legend>Registros do Livro Caixa</legend>
     <c:if test="${not empty livro.registros}">

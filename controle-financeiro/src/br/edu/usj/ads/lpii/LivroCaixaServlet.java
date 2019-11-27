@@ -23,7 +23,6 @@ public class LivroCaixaServlet extends HttpServlet {
 
         livro.adicionaRegistro(registro);
 
-        request.setAttribute("livro", livro);
         RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
         rd.forward(request, response);
     }

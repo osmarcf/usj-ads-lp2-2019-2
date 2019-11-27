@@ -1,5 +1,8 @@
 package br.edu.usj.ads.lpii;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivroCaixa {
+    EntityManager em = Persistence.createEntityManagerFactory("persistenceUnit").createEntityManager();
+
+    public List<Registro> getRegistros() {
+        String sql = "select r from Registro r";
+        return em.createQuery(sql).getResultList();
+    }
+
+    public void adicionaRegistro(Registro r) {
+        em.getTransaction().begin();
+        em.persist(r);
+        em.getTransaction().commit();
+    }
 
     /*
     private List<Registro> registros = new ArrayList<>();
@@ -20,6 +35,7 @@ public class LivroCaixa {
     }
      */
 
+    /*
     public List<Registro> getRegistros() {
         // pegar conexao com banco
         Connection conexao = new ConnectionFactory().getConnection();
@@ -83,4 +99,5 @@ public class LivroCaixa {
             e.printStackTrace();
         }
     }
+     */
 }
