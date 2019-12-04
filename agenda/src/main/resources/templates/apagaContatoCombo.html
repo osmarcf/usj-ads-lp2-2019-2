@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Apaga Contato</title>
+</head>
+<body>
+
+<form action="/contato/delete" method="post">
+    <select name="id" id="id">
+        <option th:each="c : ${contatos}" th:text="${c.nome}" th:value="${c.id}" />
+    </select>
+    <input type="submit" />
+</form>
+
+</body>
+</html>

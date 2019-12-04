@@ -11,8 +11,15 @@ Hello World Spring boot!
     <tr th:each="c : ${contatos}" >
         <td th:text="${c.nome}"></td>
         <td th:text="${c.cidade}"></td>
+        <td><a th:href="@{/contato/{id}/update(id=${c.id})}">Editar</a></td>
+        <td><a th:href="@{/contato/{id}/delete(id=${c.id})}" onclick="return confirm('Deseja apagar?')">Apaga</a></td>
     </tr>
 </table>
+
+<p><a href="/contato/deleteCombo">Apaga selecionando por combo</a></p>
+<p><a href="/apagaContato.html">Apaga digitando o id</a></p>
+
+<p><a href="/adicionaContato.html">Adiciona novo contato</a></p>
 
 </body>
 </html>

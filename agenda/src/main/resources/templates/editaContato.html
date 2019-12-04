@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostra Contato</title>
+</head>
+<body>
+
+<form action="/contato/update" method="post">
+    <input type="hidden" name="id" id="id" th:value="${contato.id}" />
+    <input type="text" name="nome" id="nome" th:value="${contato.nome}" />
+    <input type="text" name="cidade" id="cidade" th:value="${contato.cidade}" />
+    <input type="submit" />
+</form>
+
+</body>
+</html>
