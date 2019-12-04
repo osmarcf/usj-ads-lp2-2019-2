@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Contatos</title>
+</head>
+<body>
+Hello World Spring boot!
+
+<table>
+    <tr th:each="c : ${contatos}" >
+        <td th:text="${c.nome}"></td>
+        <td th:text="${c.cidade}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
